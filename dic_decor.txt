@@ -1,0 +1,24 @@
+keys = ['a', 'b', 'c', 'd', 'e']
+values = [1, 2, 3, 4, 5]
+
+
+def create_dictionary(keys, values):
+    result = {}
+    for key, value in zip(keys, values):
+        result[key] = value
+    return result
+
+print(create_dictionary(keys=keys, values=values))
+
+
+def decor(fun):
+    def inner():
+        create_dictionary(keys, values)
+        print("*" * 10)
+        print("*" * 10)
+        print("decor code")
+
+    return inner
+
+result = decor(create_dictionary(keys, values))
+result()
